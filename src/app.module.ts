@@ -44,7 +44,7 @@ export class AppModule implements NestModule {
 
 
     // AUTH proxy
-consumer.apply(createAuthProxy(this.configService)).forRoutes("/auth");
+  consumer.apply(createAuthProxy(this.configService)).forRoutes("/auth");
 
 
      // COMPANIES proxy 
