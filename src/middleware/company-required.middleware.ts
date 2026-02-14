@@ -9,8 +9,7 @@ export class CompanyRequiredMiddleware implements NestMiddleware {
     if (
       req.originalUrl.startsWith("/auth") ||
       req.originalUrl.startsWith("/health") ||
-      req.originalUrl.startsWith("/companies" )|| 
-      req.originalUrl.startsWith("/users")
+      req.originalUrl.startsWith("/companies" )
     ) {
       return next();
     }
