@@ -19,7 +19,6 @@ const auth_proxy_1 = require("./proxy/auth.proxy");
 const billing_proxy_1 = require("./proxy/billing.proxy");
 const request_logger_middleware_1 = require("./middleware/request-logger.middleware");
 const jwt_auth_middleware_1 = require("./middleware/jwt-auth.middleware");
-const company_required_middleware_1 = require("./middleware/company-required.middleware");
 const companies_proxy_1 = require("./proxy/companies.proxy");
 let AppModule = class AppModule {
     configService;
@@ -28,9 +27,6 @@ let AppModule = class AppModule {
     }
     configure(consumer) {
         consumer.apply(request_logger_middleware_1.RequestLoggerMiddleware, jwt_auth_middleware_1.JwtAuthMiddleware).forRoutes("*");
-        consumer
-            .apply(company_required_middleware_1.CompanyRequiredMiddleware)
-            .forRoutes('*');
         consumer.apply((0, auth_proxy_1.createAuthProxy)(this.configService)).forRoutes("/auth");
         consumer
             .apply((0, companies_proxy_1.createCompaniesProxy)(this.configService))

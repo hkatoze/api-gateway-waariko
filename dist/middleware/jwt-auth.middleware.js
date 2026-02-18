@@ -22,6 +22,9 @@ let JwtAuthMiddleware = class JwtAuthMiddleware {
             req.originalUrl.startsWith("/auth/health") ||
             req.originalUrl.startsWith("/auth/login") ||
             req.originalUrl.startsWith("/auth/register") ||
+            req.originalUrl.startsWith("/auth/forgot-password") ||
+            req.originalUrl.startsWith("/auth/verify-otp") ||
+            req.originalUrl.startsWith("/auth/reset-password") ||
             req.originalUrl.startsWith("/health")) {
             return next();
         }
