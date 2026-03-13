@@ -9,7 +9,7 @@ async function bootstrap() {
   app.enableCors({
     origin: "*", // ⚠️ à restreindre en prod
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
-    allowedHeaders: ["Content-Type", "Authorization"],
+    allowedHeaders: ["Content-Type", "Authorization",'x-company-id', ],
     credentials: false, // true seulement si cookies
   });
 
